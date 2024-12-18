@@ -67,7 +67,7 @@ function App() {
           {showAddFriend && <FormAddForm addNewFriend={addNewFriend}></FormAddForm>}
           <Button onClick={handleShowAddFreind}>{showAddFriend?"close":"Add friend"}</Button>
         </div>
-        {selectedFriend && <FormSplitBill selectedFriend={selectedFriend}  onSplitBill={handleSplitBill}></FormSplitBill>}
+        {selectedFriend && <FormSplitBill selectedFriend={selectedFriend}  onSplitBill={handleSplitBill} key={crypto.randomUUID()}></FormSplitBill>}
       </ul>
     </>
   )
@@ -161,6 +161,8 @@ function FormAddForm({addNewFriend}){
 }
 
 function FormSplitBill({selectedFriend, onSplitBill}){
+
+  const randomKey  = crypto.randomUUID();
 
   const [totalBill,setTotalBill] = useState("");
   const [yourExpense,setYourExpense] = useState("");
